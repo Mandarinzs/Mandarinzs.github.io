@@ -173,6 +173,28 @@ var _hmt = _hmt || [];
 <pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</code></pre>
 <p>然后按照提示一直向下进行安装SSR即可。</p>
 <p>ShadowsocksR软件下载地址：<br>Windows: <a target="_blank" rel="noopener" href="https://github.com/shadowsocksr-rm/shadowsocksr-csharp/releases/tag/4.7.0.1">ShadowsocksR</a><br>macOS: <a target="_blank" rel="noopener" href="https://github.com/wzdnzd/ShadowsocksX-NG-R/releases">ShadowsocksX-R</a><br>Android: <a target="_blank" rel="noopener" href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases/tag/3.4.0.8">ShadowsocksR-Android</a><br>iOS: 某宝或者某鱼搜索“小火箭”，租用美区账号，下载Shadowrocket。  </p>
+<p>按照命令行中显示的参数添加即可。</p>
+<h3 id="使用BBR加速"><a href="#使用BBR加速" class="headerlink" title="使用BBR加速"></a>使用BBR加速</h3><p>什么是BBR？</p>
+<blockquote>
+<p>BBR是Google 提出的一种新型拥塞控制算法，可以使Linux服务器显著地提高吞吐量和减少TCP连接的延迟。Google已经开源了该算法，并提交到了Linux内核，从4.9开始，Linux内核已经用上了该算法。</p>
+</blockquote>
+<h4 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h4><p>一、升级内核<br>查看当前内核版本：  </p>
+<pre><code>uname -r</code></pre>
+<p>假如得到如下结果：  </p>
+<pre><code>3.10.0-514.10.2.el7.x86_64</code></pre>
+<p>说明当前内核版本低于 4.10，使用 ELRepo 源更新：</p>
+<pre><code>sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+sudo yum --enablerepo=elrepo-kernel install kernel-ml -y</code></pre>
+<p>安装完成后，查看已安装的内核：</p>
+<pre><code>rpm -qa | grep kernel</code></pre>
+<p>得到结果如下：</p>
+<pre><code>kernel-ml-tools-5.9.0-1.el7.elrepo.x86_64
+kernel-ml-tools-libs-5.9.0-1.el7.elrepo.x86_64
+kernel-3.10.0-1127.19.1.el7.x86_64
+kernel-3.10.0-957.12.2.el7.x86_64
+kernel-ml-5.9.0-1.el7.elrepo.x86_64
+kernel-3.10.0-957.21.3.el7.x86_64</code></pre>
 	  
 	</div>
 
